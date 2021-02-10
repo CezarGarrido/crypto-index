@@ -6,8 +6,9 @@ import (
 
 	"github.com/CezarGarrido/crypto-index/api/helper"
 )
-
+// ErrInvalidEmail: represents an invalid user.Email error
 var ErrInvalidEmail = errors.New("Invalid email")
+// ErrInvalidEmail: represents an invalid user.Password error
 var ErrInvalidPassword = errors.New("Invalid password")
 
 // User: Structure that represents a user
