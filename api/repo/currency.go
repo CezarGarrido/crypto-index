@@ -6,8 +6,16 @@ import (
 	db "github.com/CezarGarrido/crypto-index/api/db"
 	"github.com/CezarGarrido/crypto-index/api/entity"
 )
+
 // CurrencyRepoInterface represents currency repo database
 type CurrencyRepoInterface interface {
+	// Update: Update the currency in the repository.
+	// Example:
+	// ctx := context.TODO()
+	// currencyToUpdate := &entity.Currency{BRL: "5.500",EUR: "0.620",CAD: "1.740"}
+	// currencyUpdated, err := Update(ctx, currencyToUpdate)
+	// if err != nil { // Error handling return}
+	// Its work currencyUpdated
 	Update(ctx context.Context, currency *entity.Currency) (*entity.Currency, error)
 }
 
@@ -29,7 +37,7 @@ type currencyInMemoryRepo struct {
 }
 
 // Update: Update the currency in the memory repository.
-// Example: 
+// Example:
 // database, _ := db.NewWithMemoryDB("./api/storage/currencies.json")
 // currencyRepo := NewCurrencyInMemoryRepo(database)
 // ctx := context.TODO()
@@ -37,7 +45,6 @@ type currencyInMemoryRepo struct {
 // currencyUpdated, err := currencyRepo.Update(ctx, currencyToUpdate)
 // if err != nil { // Error handling return}
 // Its work currencyUpdated
-
 func (c *currencyInMemoryRepo) Update(ctx context.Context, currency *entity.Currency) (*entity.Currency, error) {
 	return currency, c.db.MemoryDB.WriteFile(currency)
 }

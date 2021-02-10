@@ -8,6 +8,8 @@ import (
 	"github.com/CezarGarrido/crypto-index/api/entity"
 	"github.com/CezarGarrido/crypto-index/api/repo"
 	"github.com/stretchr/testify/assert"
+
+	
 )
 
 // TestUpdateCurrencyRepo: Creating test for new users
@@ -70,3 +72,4 @@ func TestUpdateCurrencyRepo(t *testing.T) {
 	}
 
 }
+
